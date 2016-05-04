@@ -1,1 +1,3 @@
-Welcome <%=  @game.turn.name %>
+<% @game.players.each do | player | %>
+  <%= link_to player.name, game_player_path(@game, player) %>
+<% end %>

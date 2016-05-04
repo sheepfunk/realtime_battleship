@@ -15,6 +15,5 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    @game.update_attributes(turn_id:@game.players.first.id) if !@game.turn_id
   end
 end
