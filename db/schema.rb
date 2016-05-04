@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160504061737) do
     t.string   "y",          limit: 255
     t.string   "outcome",    limit: 255
     t.integer  "player_id",  limit: 4
+    t.integer  "game_id",    limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

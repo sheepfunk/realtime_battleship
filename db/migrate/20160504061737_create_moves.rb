@@ -5,6 +5,7 @@ class CreateMoves < ActiveRecord::Migration
       t.string :y
       t.string :outcome
       t.integer :player_id
+      t.integer :game_id
 
       t.timestamps null: false
     end

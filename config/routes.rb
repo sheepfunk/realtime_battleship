@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :games do
-    resources :players
+  resources :games, :only => [:index, :new, :show ] do
+    resources :players, :only => [:show] do
+      resources :moves, :only => [:new]
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

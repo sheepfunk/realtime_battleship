@@ -1,6 +1,6 @@
 Welcome <%= @player.name %>
 <% if @player.my_turn %>
   It's your turn
+  <%= render partial: 'game', object: @player.game %>
 <% end %>
 
-<%= render partial: 'game', object: @player.game %>

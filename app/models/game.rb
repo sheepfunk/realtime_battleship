@@ -6,8 +6,10 @@ class Game < ActiveRecord::Base
   after_initialize :add_players
 
   def add_players
-    self.players << [Player.new(name:'muffin'), Player.new(name:'wombat')] if self.new_record?
-    self.turn = self.players.first
+    if self.new_record?
+      self.players << [Player.new(name:'muffin'), Player.new(name:'wombat')]
+      self.turn = self.players.first
+    end
   end
 
 end
