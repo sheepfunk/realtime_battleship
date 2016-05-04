@@ -1,0 +1,31 @@
+- Ruby 2.1.1
+- Mysql
+
+mysql> create database battleship_development;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> grant all privileges on battleship_development.* to 'railsuser'@'localhost' identified by 'railspwd';
+Query OK, 0 rows affected (0.00 sec)
+
+
+
+To Do
+
+- Game
+   winner
+
+Board
+    - squares
+
+Square
+    - state
+
+Ship
+    - Positions
+
+
+
+rails g model game
+
+
+
