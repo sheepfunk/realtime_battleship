@@ -1,5 +1,8 @@
 - Ruby 2.1.1
 - Mysql
+- node.js
+- bower # npm install -g bower
+
 
 mysql> create database battleship_development;
 Query OK, 1 row affected (0.01 sec)
@@ -12,6 +15,31 @@ Query OK, 0 rows affected (0.00 sec)
 To Do
 
 - Make there be a system that checks which users are occupied
+
+
+
+What if there was one home page and everything happened on that page in angular
+
+1. User screen
+
+
+Main Screen
+
+    - New Game Button
+    - Takes you to a board
+    - You send a link to you friend
+
+Game Board
+
+1. If it's your turn you can click
+
+
+
+
+
+
+
+
 
 
 
