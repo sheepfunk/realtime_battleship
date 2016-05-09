@@ -5,11 +5,23 @@ angular.module('app.battleshipApp').controller("MoveCtrl", ['$scope', 'gameServi
     {
         $scope.playerId = playerId;
         $scope.gameId = gameId;
-        $scope.game = gameService.getGame($scope.gameId);
-        debugger;
+        gameService.getGame($scope.gameId).then(
+            /* success function */
+            function(game) {
+                $scope.game     = game;
+                $scope.myTurn   = ($scope.playerId == $scope.game.turn_id);
+            },
+            /* error function */
+            function(result) {
+                console.log("Failed to get the game, result is " + result);
+            }
+        );
     };
 
 
+
+
     $scope.welcome = "Hi Sailor!";
+
 
 }]);

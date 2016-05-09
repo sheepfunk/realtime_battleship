@@ -1,11 +1,9 @@
 Welcome <%= @player.name %>
-<% if @player.my_turn %>
-  It's your turn
-  <%= render partial: 'game', object: @player.game %>
-  <div ng-app='app.battleshipApp' ng-controller='MoveCtrl' ng-init="init(<%= @player.id %>, <%= @player.game.id %>)">
-    <p>Value from MoveCtrl:</p>
-    <p>{{ welcome }}</p>
+<div ng-app='app.battleshipApp' ng-controller='MoveCtrl' ng-init="init(<%= @player.id %>, <%= @player.game.id %>)">
+  <p>{{ welcome }}</p>
+  <div ng-show='myTurn'>
+    <%= link_to "Move #{@player.name}", new_game_player_move_path(@player.game, @player) %>
   </div>
+</div>
 
-<% end %>
 
