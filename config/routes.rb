@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+  root to: "games#index"
+
   resources :games, :only => [:index, :new, :show ] do
     resources :players, :only => [:show] do
       resources :moves, :only => [:new]
