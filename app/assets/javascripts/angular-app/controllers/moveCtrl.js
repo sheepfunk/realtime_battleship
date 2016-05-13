@@ -1,5 +1,8 @@
-angular.module('app.battleshipApp').controller("MoveCtrl", ['$scope', 'gameService', function($scope, gameService) {
+angular.module('app.battleshipApp').controller("MoveCtrl", ['$scope', '$window', '$log', 'gameService', function($scope, $window, $log, gameService) {
+
     $scope.game;
+    $scope.welcome = "Hi Sailor!";
+    $scope.$log = $log;
 
     $scope.init = function(playerId, gameId)
     {
@@ -18,10 +21,35 @@ angular.module('app.battleshipApp').controller("MoveCtrl", ['$scope', 'gameServi
         );
     };
 
+    // https://github.com/mikeatlas/realtime-rails/blob/master/app/views/realtime/_realtime_message_console_logger.html.erb
+    debugger;
+    if ($window.realtime.enabled && $window.realtime.eventBus){
+        // handle events in the queue with eventing
+        var realtimeMessageEventConsoleLogger = function(message) {
+
+            $scope.message = "Hi";
+            $scope.message = message;
+            $scope.message = "Muffin";
+        };
+        $window.realtime.eventBus.on('realtimeMessage', realtimeMessageEventConsoleLogger);
+
+    } else if ($window.realtime.enabled) {
+        // handle events in the queue without eventing
+        messageQueueConsoleLogger = function() {
+            message = window.realtime.messageQueue.shift();
+            if (message) {
+                $scope.message = "Hi";
+                $scope.message = message;
+                $scope.message = "Muffin";
+            }
+        };
+        setInterval(messageQueueConsoleLogger, 100);
+
+    } else {
+        console.log('Error: Realtime was not enabled.')
+    }
 
 
-
-    $scope.welcome = "Hi Sailor!";
 
 
 }]);
