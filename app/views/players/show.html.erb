@@ -2,7 +2,9 @@ Welcome <%= @player.name %>
 <div ng-app='app.battleshipApp' ng-controller='MoveCtrl' ng-init="init(<%= @player.id %>, <%= @player.game.id %>)">
   <p>{{ welcome }}</p>
   <div ng-show='myTurn'>
-    <%= link_to "Move #{@player.name}", new_game_player_move_path(@player.game, @player) %>
+    <a href="" ng-click="makeMove()">
+      Move <%= @player.name %>
+    </a>
   </div>
 </div>
 

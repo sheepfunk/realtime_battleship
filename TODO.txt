@@ -1,0 +1,13 @@
+1. Make the move action do stuff
+
+    A. User will click something that will make a call to the move/new action
+
+        - A new move will create a move object
+        - Change the turn id of the game
+        - Publish a message containing the move location, the move result, and the player id of the mover
+        - A test for this?
+
+
+
+    B. Most basic proof of concept
+        - a move will change who's turn it is, this will get published

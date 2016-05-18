@@ -3,6 +3,10 @@ angular.module('app.battleshipApp').controller("MoveCtrl", ['$scope', '$window',
     $scope.game;
     $scope.welcome = "Hi Sailor!";
 
+    $scope.makeMove = function(){
+        gameService.makeMove($scope.gameId, $scope.playerId);
+    }
+
     $scope.init = function(playerId, gameId)
     {
         $scope.playerId = playerId;
@@ -26,10 +30,7 @@ angular.module('app.battleshipApp').controller("MoveCtrl", ['$scope', '$window',
         if ($window.realtime.enabled && $window.realtime.eventBus) {
             // handle events in the queue with eventing
             var realtimeMessageEventConsoleLogger = function (message) {
-
-                $log.log("Hi");
-                $log.log(message);
-                $log.log("Muffin");
+                $scope.init($scope.playerId, $scope.gameId);
             };
             $window.realtime.eventBus.on('realtimeMessage', realtimeMessageEventConsoleLogger);
 
@@ -38,9 +39,7 @@ angular.module('app.battleshipApp').controller("MoveCtrl", ['$scope', '$window',
             messageQueueConsoleLogger = function () {
                 message = window.realtime.messageQueue.shift();
                 if (message) {
-                    $log.log("Hi");
-                    $log.log(message);
-                    $log.log("Muffin");
+                    $scope.init($scope.playerId, $scope.gameId);
                 }
             };
             setInterval(messageQueueConsoleLogger, 100);
